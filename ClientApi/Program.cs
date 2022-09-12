@@ -1,8 +1,12 @@
 using MagicLogger.DependencyInjection;
+using Serilog.Core;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// You can add Serilog Enrichers if you want. Magic Logger will read from the ServiceCollection and use them all
+builder.Services.AddTransient<ILogEventEnricher, MyCustomEnricher>();
 
 builder.Services.CustomizeMagicLoggerMiddlewares(opt =>
 {
@@ -43,7 +47,10 @@ var app = builder.Build();
 
 app.MapGet("/weatherforecast", Endpoints.GetWeather).WithName("GetWeatherForecast");
 
+// Adding other middlewares before the Magic Logger's one won't have anything logged
 app.UseMagicLoggerMiddleware();
+// Adding other middlewares after the Magic Logger's one may potentially be logger if you want,
+// but it needs some setting.
 
 app.UseSwagger();
 app.UseSwaggerUI();
