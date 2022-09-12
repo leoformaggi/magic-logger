@@ -32,7 +32,7 @@ internal class PagarmeLogEnricher : ILogEventEnricher
 
     private void HandleLog(LogEvent logEvent, ILogEventPropertyFactory propertyFactory, HttpContext context)
     {
-        if (logEvent.Properties.TryGetValue("SourceContext", out LogEventPropertyValue sourceContext))
+        if (logEvent.Properties.TryGetValue("SourceContext", out LogEventPropertyValue? sourceContext))
             if (sourceContext.ToString() is "\"MagicLogger.Middlewares.Internal.LoggerMiddleware\"")
                 AddDefaultProperties(logEvent, propertyFactory, context);
 
