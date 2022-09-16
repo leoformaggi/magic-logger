@@ -1,9 +1,9 @@
 ﻿using MagicLogger.Data;
+using MagicLogger.DependencyInjection.Options;
 using MagicLogger.Enrichers;
 using MagicLogger.Formatters;
 using MagicLogger.Settings;
 using Serilog;
-using Serilog.Configuration;
 using Serilog.Core;
 using Serilog.Events;
 

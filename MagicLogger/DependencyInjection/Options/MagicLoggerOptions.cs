@@ -1,7 +1,7 @@
 ﻿using MagicLogger.Settings;
 using Serilog.Events;
 
-namespace MagicLogger.DependencyInjection;
+namespace MagicLogger.DependencyInjection.Options;
 
 public class MagicLoggerOptions
 {

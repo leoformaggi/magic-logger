@@ -1,4 +1,4 @@
-﻿namespace MagicLogger.DependencyInjection;
+﻿namespace MagicLogger.DependencyInjection.Options;
 
 public class MagicLoggerMiddlewareOptions
 {
